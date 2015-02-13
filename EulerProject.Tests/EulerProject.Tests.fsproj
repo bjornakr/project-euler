@@ -55,6 +55,9 @@
     <None Include="packages.config" />
     <None Include="app.config" />
     <Compile Include="Problem29Test.fs" />
+    <Compile Include="Problem30Test.fs" />
+    <Compile Include="Problem26Test.fs" />
+    <Compile Include="PrimeCalculatorTest.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EulerProject\EulerProject.Core.fsproj">

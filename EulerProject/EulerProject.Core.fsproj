@@ -46,6 +46,9 @@
     <None Include="Script.fsx" />
     <Compile Include="Hello.fs" />
     <Compile Include="Problem29.fs" />
+    <Compile Include="Problem30.fs" />
+    <Compile Include="Problem26.fs" />
+    <Compile Include="PrimeCalculator.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
