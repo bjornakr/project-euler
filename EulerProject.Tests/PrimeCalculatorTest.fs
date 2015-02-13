@@ -11,6 +11,7 @@ open FsUnit
 [<TestCase(4, Result=false)>]
 [<TestCase(5, Result=true)>]
 [<TestCase(9, Result=false)>]
+[<TestCase(97, Result=true)>]
 let isPrime_with x =
     isPrime x
 

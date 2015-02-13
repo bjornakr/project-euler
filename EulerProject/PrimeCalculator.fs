@@ -3,40 +3,27 @@
 module PrimeCalculator =
     open System.Collections;
 
-    let isEven x =
-        (x % 2) = 0
-
-    let isOdd x =
-        not <| isEven x
+    let internal mapPos x = (x-3) / 2
 
     let internal primeMap n =        
+        let bitArray = new BitArray(n, true)
 
         let calculate x =
-            let bitArray = new BitArray(n, true)
-            let mapPos x = (x-3) / 2
-            let limit = int (sqrt <| float n)
-            for i in 1..limit do
-                bitArray.Set(mapPos (i*x), false)
-//            ignore(seq { for i in 1..limit do yield x * i }
-//            |> Seq.map (fun j -> bitArray.Set(mapPos j, false)))
-            bitArray
+            // Start: (x*3) because 'x' itself must not be marked false, as it may be prime. (x*2) is prime by default.
+            // Step:  (x*2) to get the next odd number
+            for i in x*3..x*2..n do
+                printfn "%d" i
+                bitArray.[mapPos i] <- false
 
-        let rec crunch (primeMaps:list<BitArray>) =
-            match primeMaps with
-            | h::t -> h.And(crunch t)
-            | _ -> new BitArray(n, true)
-
-
-        let a = [3..(int (sqrt <| float n))]
-        let b = Seq.filter isOdd a
-        let c = Seq.map (fun x -> calculate x) a
-        crunch (Seq.toList c)
-    
+        let limit = (int (sqrt <| float n))
+        for i in 3..2..limit do
+            calculate i
+        bitArray
 
 
     let isPrime x =
         match x with
         | x when x < 2 -> false
         | 2 -> true
-        | x when isEven x -> false
-        | _ -> (primeMap 1000).[(x-3) / 2]
+        | x when x % 2 = 0 -> false
+        | _ -> (primeMap x).[mapPos x]
