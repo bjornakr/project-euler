@@ -10,18 +10,30 @@ module PrimeCalculator =
         not <| isEven x
 
     let internal primeMap n =        
-        let bitArray = new BitArray(n, true)
 
         let calculate x =
+            let bitArray = new BitArray(n, true)
             let mapPos x = (x-3) / 2
-            seq { for i in 2..(int (sqrt <| float n)) do yield x * i }
-            |> Seq.map (fun i -> bitArray.[mapPos i] <- false)
+            let limit = int (sqrt <| float n)
+            for i in 1..limit do
+                bitArray.Set(mapPos (i*x), false)
+//            ignore(seq { for i in 1..limit do yield x * i }
+//            |> Seq.map (fun j -> bitArray.Set(mapPos j, false)))
+            bitArray
 
-        let a = [3..n]
+        let rec crunch (primeMaps:list<BitArray>) =
+            match primeMaps with
+            | h::t -> h.And(crunch t)
+            | _ -> new BitArray(n, true)
+
+
+        let a = [3..(int (sqrt <| float n))]
         let b = Seq.filter isOdd a
-        let c = Seq.map (fun x -> calculate x) b
-        bitArray
+        let c = Seq.map (fun x -> calculate x) a
+        crunch (Seq.toList c)
     
+
+
     let isPrime x =
         match x with
         | x when x < 2 -> false
