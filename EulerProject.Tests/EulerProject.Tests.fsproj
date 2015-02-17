@@ -60,6 +60,8 @@
     <Compile Include="PrimeCalculatorTest.fs" />
     <Compile Include="Problem27Test.fs" />
     <Compile Include="Problem31Test.fs" />
+    <Compile Include="Problem32Test.fs" />
+    <Compile Include="NumberUtilitiesTest.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EulerProject\EulerProject.Core.fsproj">

@@ -15,7 +15,6 @@ module Problem30 =
     let sumsOfPowersOfEachDigit n =
         {1..10000000}
         |> Seq.map (fun x -> (x, sumOfPoweredDigits x n))
-//        |> Seq.toList
         
     let equalSumAndDigits n = 
         sumsOfPowersOfEachDigit n

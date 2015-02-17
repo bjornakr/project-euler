@@ -22,13 +22,6 @@ module Problem26 =
 module Problem26Old =
     open System.Numerics
 
-//    let decimalString f =
-//        string f
-//        |> fun s -> s.Split [|'.'|]
-//        |> fun sa ->
-//            if Array.length sa = 1 then ""
-//            else sa.[1]
-
     let decimalString f =
         let rec takeUntilZero s pos =
             if pos = String.length s then s

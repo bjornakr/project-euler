@@ -44,13 +44,15 @@
   <ItemGroup>
     <Compile Include="Library1.fs" />
     <None Include="Script.fsx" />
+    <Compile Include="NumberUtilities.fs" />
+    <Compile Include="PrimeCalculator.fs" />
     <Compile Include="Hello.fs" />
     <Compile Include="Problem29.fs" />
     <Compile Include="Problem30.fs" />
     <Compile Include="Problem26.fs" />
-    <Compile Include="PrimeCalculator.fs" />
     <Compile Include="Problem27.fs" />
     <Compile Include="Problem31.fs" />
+    <Compile Include="Problem32.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
